@@ -76,13 +76,6 @@
   cursor: pointer;
 }
 
-.line {
-  background-color: rgb(203, 206, 40);
-  height: 3px;
-  width: 16vw;
-  position: absolute;
-}
-
 @media screen and (max-width: 800px) {
   .gameContainer {
     flex-wrap: wrap;
