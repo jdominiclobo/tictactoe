@@ -33,20 +33,22 @@ const checkWin = () => {
     ) {
       message = tileTexts[e[0]].innerText + " won";
       gameOver = true;
+      checkCount = 0;
     }
   });
   if (gameOver) {
     document.querySelector(".display").innerText = message;
     let ans = confirm(`Game over, reset tiles?`);
     if (ans) {
+      checkCount = 0;
       clearTiles();
     }
   }
   if (checkCount === 9) {
     document.querySelector(".display").innerText = "Draw";
     let ans = confirm("Game draw, reset tiles?");
-
     if (ans) {
+      checkCount = 0;
       clearTiles();
     }
   }
