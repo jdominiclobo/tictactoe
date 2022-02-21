@@ -38,19 +38,23 @@ const checkWin = () => {
   });
   if (gameOver) {
     document.querySelector(".display").innerText = message;
-    let ans = confirm(`Game over, reset tiles?`);
-    if (ans) {
-      checkCount = 0;
-      clearTiles();
-    }
+    setTimeout(() => {
+      let ans = confirm(`Game over, reset tiles?`);
+      if (ans) {
+        checkCount = 0;
+        clearTiles();
+      }
+    }, 1000);
   }
   if (checkCount === 9) {
     document.querySelector(".display").innerText = "Draw";
-    let ans = confirm("Game draw, reset tiles?");
-    if (ans) {
-      checkCount = 0;
-      clearTiles();
-    }
+    setTimeout(() => {
+      let ans = confirm("Game draw, reset tiles?");
+      if (ans) {
+        checkCount = 0;
+        clearTiles();
+      }
+    }, 1000);
   }
 };
 
