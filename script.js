@@ -31,27 +31,26 @@ const checkWin = () => {
       tileTexts[e[2]].innerText === tileTexts[e[1]].innerText &&
       tileTexts[e[0]].innerText !== ""
     ) {
-      message = tileTexts[e[0]].innerText + " won";
+      message = tileTexts[e[0]].innerText;
       gameOver = true;
       checkCount = 0;
     }
+    if (gameOver) {
+      document.querySelector(".display").innerText = message + " won";
+      swal(`Player ${message} won`);
+      checkCount = 0;
+      setTimeout(() => {
+        clearTiles();
+      }, 2000);
+    } else if (checkCount === 9) {
+      document.querySelector(".display").innerText = "Draw";
+      swal("It's a draw");
+      setTimeout(() => {
+        checkCount = 0;
+        clearTiles();
+      }, 1000);
+    }
   });
-  if (gameOver) {
-    document.querySelector(".display").innerText = message;
-    swal("Player X won");
-    setTimeout(() => {
-      checkCount = 0;
-      clearTiles();
-    }, 2000);
-  }
-  if (checkCount === 9) {
-    document.querySelector(".display").innerText = "Draw";
-    swal("It's a draw");
-    setTimeout(() => {
-      checkCount = 0;
-      clearTiles();
-    }, 1000);
-  }
 };
 
 // Clear tiles once won
