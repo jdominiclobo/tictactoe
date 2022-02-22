@@ -38,22 +38,18 @@ const checkWin = () => {
   });
   if (gameOver) {
     document.querySelector(".display").innerText = message;
+    swal("Player X won");
     setTimeout(() => {
-      let ans = confirm(`Game over, reset tiles?`);
-      if (ans) {
-        checkCount = 0;
-        clearTiles();
-      }
-    }, 1000);
+      checkCount = 0;
+      clearTiles();
+    }, 2000);
   }
   if (checkCount === 9) {
     document.querySelector(".display").innerText = "Draw";
+    swal("It's a draw");
     setTimeout(() => {
-      let ans = confirm("Game draw, reset tiles?");
-      if (ans) {
-        checkCount = 0;
-        clearTiles();
-      }
+      checkCount = 0;
+      clearTiles();
     }, 1000);
   }
 };
@@ -80,9 +76,9 @@ for (let i = 0; i < tiles.length; i++) {
       tileText.innerText = turn;
       checkCount++;
       turn = changeTurn();
-      setTimeout(() => {
-        checkWin();
-      }, 500);
+      // setTimeout(() => {
+      checkWin();
+      // }, 500);
 
       if (!gameOver) {
         document.getElementsByClassName("display")[0].innerText =
