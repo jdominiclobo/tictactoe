@@ -33,22 +33,18 @@ const checkWin = () => {
     ) {
       message = tileTexts[e[0]].innerText;
       gameOver = true;
-      checkCount = 0;
+      // checkCount = 0;
     }
     if (gameOver) {
       document.querySelector(".display").innerText = message + " won";
       swal(`Player ${message} won`);
       checkCount = 0;
-      setTimeout(() => {
-        clearTiles();
-      }, 2000);
+      clearTiles();
     } else if (checkCount === 9) {
       document.querySelector(".display").innerText = "Draw";
       swal("It's a draw");
-      setTimeout(() => {
-        checkCount = 0;
-        clearTiles();
-      }, 1000);
+      checkCount = 0;
+      clearTiles();
     }
   });
 };
